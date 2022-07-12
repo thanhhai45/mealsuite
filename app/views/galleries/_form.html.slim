@@ -1,0 +1,15 @@
+= form_for @gallery do |f|
+  - if @gallery.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@gallery.errors.count, "error")} prohibited this gallery from being saved:"
+      ul
+        - @gallery.errors.full_messages.each do |message|
+          li = message
+
+  .form-outline.mb-4
+    = f.label :name, class: "form-label"
+    = f.text_field :name, class: "form-control"
+  .form-outline.mb-4
+    = f.label :description, class: "form-label"
+    = f.text_area :description, class: "form-control"
+  .actions = f.submit "Create", class: "btn btn-primary btn-block mb-4 container"

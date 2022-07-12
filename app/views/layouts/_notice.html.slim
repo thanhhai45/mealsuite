@@ -1,0 +1,7 @@
+.container-fluid
+  - if notice.present?
+    p.notice.alert.alert-success
+      = notice
+  - if alert.present?
+    p.alert.alert-danger
+      = alert

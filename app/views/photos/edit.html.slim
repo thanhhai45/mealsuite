@@ -1,0 +1,6 @@
+.container style="width: 500px; margin-top: 20px"
+  h1 Editing photo
+  = render "form"
+
+  = link_to "Show", gallery_photo_path(@photo.gallery, @photo), class: "btn btn-success btn-block mb-4 container"
+  = link_to "Back", gallery_photos_path, class: "btn btn-light btn-block mb-4 container"

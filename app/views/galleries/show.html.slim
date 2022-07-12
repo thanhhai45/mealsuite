@@ -1,0 +1,19 @@
+.container style="width: 700px; margin-top: 20px"
+  p#notice = notice
+
+  p
+    strong Name:
+  p
+    = @gallery.name
+
+  p
+    strong Description:
+  p
+    = @gallery.description
+
+  = link_to "Edit", edit_gallery_path(@gallery), class: "btn btn-warning btn-block mb-4 container"
+  = link_to "Show photos", gallery_photos_path(@gallery), class: "btn btn-success btn-block mb-4 container"
+  = link_to "Back", galleries_path, class: "btn btn-light btn-block mb-4 container"
+
+  
+  

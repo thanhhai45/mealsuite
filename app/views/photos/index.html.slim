@@ -1,0 +1,25 @@
+h1 Listing photos
+.add-new style="width: 200px"
+  = link_to "New Photo", new_gallery_photo_path, class: "btn btn-outline-success mb-4 container"
+br
+
+.row.row-cols-3
+  - @photos.each do |photo|
+    .col.col-md-3.col-lg-3.mb-3
+      .card
+        - if photo.image.attached?
+          img.card-img-top alt="200x300" src="#{url_for(photo.image)}"  style="height: 200px; width: 100%"/
+        - else
+          = image_tag("default.jpeg", alt: "default", style: "height: 200px; width: 100%")
+        .card-body
+          h5.card-title = photo.name
+          p.card-text = photo.gallery.name
+          p.card-text = format_time(photo.shooting_date)
+          = link_to "Show", gallery_photo_path(gallery_id: photo.gallery_id, id: photo.id), class: "text-primary me-2"
+          = link_to "Edit", edit_gallery_photo_path(gallery_id: photo.gallery_id, id: photo.id), class: "text-warning me-2"
+          = link_to "Destroy", gallery_photo_path(gallery_id: photo.gallery_id, id: photo.id), data: {confirm: "Are you sure?"}, method: :delete, class: "text-danger"
+
+.row.mt-3
+  .paginations style="display: flex; justify-content: center;"
+    = render partial: 'layouts/pagination', locals: {pagy: @pagy}
+

@@ -1,0 +1,14 @@
+p#notice = notice
+.container style="width: 500px; margin-top: 20px"
+  .card
+    - if @photo.image.attached?
+      img.card-img-top alt="200x300" src="#{url_for(@photo.image)}"  style="height: 200px; width: 100%"/
+    - else
+      = image_tag("default.jpeg", alt: "default", style: "height: 200px; width: 100%")
+    .card-body
+      h5.card-title = @photo.name
+      p.card-text = @photo.gallery.name
+      p.card-text = format_time(@photo.shooting_date)
+  br
+  = link_to "Edit", edit_gallery_photo_path(@photo.gallery, @photo), class: "btn btn-warning btn-block mb-4 container"
+  = link_to "Back", gallery_photos_path, class: "btn btn-light btn-block mb-4 container"
