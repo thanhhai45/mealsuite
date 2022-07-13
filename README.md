@@ -27,4 +27,5 @@
 
 ## Unit test
 - Open terminal and run command: rspec
+- Run command with docker: docker-compose run webapp rspec
 
