@@ -19,10 +19,16 @@ default: &default
   encoding: unicode
   # For details on connection pooling, see Rails configuration guide
   # http://guides.rubyonrails.org/configuring.html#database-pooling
+  host: db
+  username: postgres
+  password: password
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
 development:
   <<: *default
+  adapter: postgresql
+  encoding: unicode
+
   database: mealsuite_development
 
   # The specified database role being used to connect to postgres.

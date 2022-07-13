@@ -1,24 +1,30 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## ENVIRONMENT:
+  ruby-version: 2.7,6
+  bundler-version: 2.1.4
+  rails-version: 5.2.8
 
-Things you may want to cover:
+## Config local environment with:
+- Link GoRails: https://gorails.com/setup/osx/12-monterey
 
-* Ruby version
+## Config with Docker
+- git clone source
+- download docker: https://docs.docker.com/desktop/mac/install/
+- cd source code
+- run command: docker-compose up
+- open new terminal and run command: docker-compose run webapp rails db:migrate
+- open browser and fill: localhost: 3000
 
-* System dependencies
+## Workflow:
+- Sign up user data
+- Sign in current user
+- Click gallery on menu and try out it
 
-* Configuration
+## Login without signup
+- email: admin@example.com
+- password: 123456
 
-* Database creation
+## Unit test
+- Open terminal and run command: rspec
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...

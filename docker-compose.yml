@@ -1,0 +1,24 @@
+version: "3.9"
+
+services:
+  webapp:
+    depends_on:
+      - db
+    ports:
+      - 3000:3000
+    build: .
+    volumes:
+      - .:/app
+    command: sh ./command.sh
+    stdin_open: true
+    tty: true
+
+  db:
+    image: postgres:latest
+    volumes:
+      - ./tmp/db:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_PASSWORD=password
+
